@@ -47,16 +47,10 @@ def predict_img():
 
                     results = model(frame,save=True)
                     print(results)
-                    cv2.waitKey(1)
-
                     res_plotted = results[0].plot()
-                    cv2.imshow("result",res_plotted)
-
                     out.write(res_plotted)
-
-                    if cv2.waitKey(1) == ord("q"):
-                        break
-
+                    # Removed cv2.waitKey and cv2.imshow for server compatibility
+                    # Removed quit condition for cv2.waitKey
                 return video_feed()
 
             else:
